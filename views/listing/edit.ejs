@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate")-%>
+
+
+    <body>
+        <div class="row">
+            <div class="col-8 offset-2 mt-4">
+                <h2>Edit your listings</h2>
+                <form method="post" class="needs-validation" novalidate
+                    action="/listings/<%= allList._id %>?_method=PUT">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Title</label>
+                        <input type="text" class="form-control" value="<%=allList.title%>" id="name"
+                            name="listing[title]" placeholder="Enter catchy title" required>
+                        <div class="valid-feedback">The title looks good!</div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="descp" class="form-label">Description</label>
+                        <textarea type="text" placeholder="Enter the description" class="form-control" required
+                            id="descp" name="listing[description]"><%= allList.description%></textarea>
+                        <div class="invalid-feedback">Please enter a short description!</div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="img-link" class="form-label">Image-link</label>
+                        <input type="text" class="form-control" value="<%=allList.image%>" id="img-link"
+                            name="listing[image]" placeholder="Enter image link" required>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="price" class="form-label">Price</label>
+                            <input class="form-control" value="<%=allList.price%>" id="price" name="listing[price]"
+                                placeholder="6000" required>
+                            <div class="invalid-feedback">Please enter a valid price!</div>
+
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="loc" class="form-label">Location</label>
+                            <input type="text" class="form-control" value="<%=allList.location%>" id="loc"
+                                name="listing[location]" placeholder="nashik,mumbai" required>
+                            <div class="invalid-feedback">Please enter a valid location!</div>
+
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" value="<%=allList.country%>" class="form-control" id="loc"
+                            name="listing[country]" placeholder="India" required>
+                        <div class="invalid-feedback">Please enter a valid country name!</div>
+
+                    </div>
+
+                    <button class="btn btn-dark mt-2 edit-btn">edit</button>
+            </div>
+        </div>
+        </form>
+    </body>
+
+    </html>
